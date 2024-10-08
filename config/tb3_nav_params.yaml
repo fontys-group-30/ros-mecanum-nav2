@@ -101,7 +101,7 @@ controller_server:
     use_sim_time: False
     controller_frequency: 10.0
     min_x_velocity_threshold: 0.001
-    min_y_velocity_threshold: 0.001  # Allow movement in the y direction
+    min_y_velocity_threshold: 0.001
     min_theta_velocity_threshold: 0.001
     failure_tolerance: 0.3
     progress_checker_plugin: "progress_checker"
@@ -124,22 +124,22 @@ controller_server:
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: True
-      min_vel_x: 0.0
-      min_vel_y: 0.0
+      min_vel_x: -0.22
+      min_vel_y: -0.22
       max_vel_x: 0.22
-      max_vel_y: 0.22  # Allow movement in the y direction
+      max_vel_y: 0.22
       max_vel_theta: 1.0
       min_speed_xy: 0.0
-      max_speed_xy: 0.22
+      max_speed_xy: 0.31
       min_speed_theta: 0.0
       acc_lim_x: 2.5
-      acc_lim_y: 2.5  # Allow acceleration in the y direction
+      acc_lim_y: 2.5
       acc_lim_theta: 3.2
       decel_lim_x: -2.5
-      decel_lim_y: -2.5  # Allow deceleration in the y direction
+      decel_lim_y: -2.5
       decel_lim_theta: -3.2
       vx_samples: 20
-      vy_samples: 20  # Sample velocities in the y direction
+      vy_samples: 20
       vtheta_samples: 40
       sim_time: 2.0
       linear_granularity: 0.05
@@ -181,8 +181,8 @@ local_costmap:
       plugins: ["obstacle_layer", "voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        inflation_radius: 1.5
-        cost_scaling_factor: 2.5
+        inflation_radius: 1.0
+        cost_scaling_factor: 3.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -274,7 +274,7 @@ global_costmap:
         map_subscribe_transient_local: True
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
+        cost_scaling_factor: 1.0
         inflation_radius: 0.15
       always_send_full_costmap: True
   global_costmap_client:
