@@ -1,167 +1,297 @@
-<robot name="assembliecarv2">
-  <link name="base_footprint">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="assembliecarv2">
+<link name="base_footprint">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <box size="0.001 0.001 0.001" />
-      </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <box size="0.001 0.001 0.001" />
+        </geometry>
     </visual>
-  </link>
+</link>
 
-  <joint name="base_footprint_joint" type="fixed">
+<joint name="base_footprint_joint" type="fixed">
     <origin xyz="0 0 0.001" rpy="0 0 0" />
     <parent link="base_footprint"/>
     <child link="base_link" />
+</joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0857489441407666 0.120087688066747 0.0626062346225724"
+        rpy="0 0 0" />
+      <mass
+        value="2.85737754623623" />
+      <inertia
+        ixx="0.00434208299750416"
+        ixy="-7.26803903582795E-07"
+        ixz="3.47982147594384E-06"
+        iyy="0.00236576255288547"
+        iyz="0.000157655614701443"
+        izz="0.00606172623265241" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto-navigation/meshes/visual/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto-navigation/meshes/visual/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left_Forward">
+    <inertial>
+      <origin
+        xyz="0 0.0144031841704055 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.184990436210963" />
+      <inertia
+        ixx="0.000100381923541725"
+        ixy="-1.35134357100748E-20"
+        ixz="1.51599028916486E-21"
+        iyy="0.000156485635543517"
+        iyz="-7.66772183917299E-21"
+        izz="0.000100381923541725" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto-navigation/meshes/visual/Left_Forward.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto-navigation/meshes/visual/Left_Forward.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftforwardjoint"
+    type="continuous">
+    <origin
+      xyz="-0.160562309085206 -0.0611349396601898 -0.0207072509888525"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Forward" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
   </joint>
-
-  <link name="base_link">
+  <link
+    name="left_backward">
     <inertial>
-      <origin xyz="-0.0857489441407666 0.120087688066747 0.0626062346225724" rpy="0 0 0" />
-      <mass value="2.85737754623623" />
-      <inertia ixx="0.00434208299750416" ixy="-7.26803903582795E-07" ixz="3.47982147594384E-06" iyy="0.00236576255288547" iyz="0.000157655614701443" izz="0.00606172623265241" />
+      <origin
+        xyz="0 0.0144031841704055 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.184990436210963" />
+      <inertia
+        ixx="0.000100381923541725"
+        ixy="-1.01204186101483E-20"
+        ixz="4.38911794701022E-21"
+        iyy="0.000156485635543517"
+        iyz="6.31917822478644E-21"
+        izz="0.000100381923541725" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/base_link.STL" />
+        <mesh
+          filename="package://auto-navigation/meshes/visual/left_backward.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/base_link.STL" />
+        <mesh
+          filename="package://auto-navigation/meshes/visual/left_backward.STL" />
       </geometry>
     </collision>
   </link>
-
-  <link name="Left_Forward">
-    <inertial>
-      <origin xyz="0 0.0144031841704055 -2.77555756156289E-17" rpy="0 0 0" />
-      <mass value="0.184990436210963" />
-      <inertia ixx="0.000100381923541725" ixy="-1.35134357100748E-20" ixz="1.51599028916486E-21" iyy="0.000156485635543517" iyz="-7.66772183917299E-21" izz="0.000100381923541725" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/Left_Forward.STL" />
-      </geometry>
-      <material name="">
-        <color rgba="1 1 0 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/Left_Forward.STL" />
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="leftforwardjoint" type="continuous">
-    <origin xyz="-0.160562309085206 -0.0611349396601898 -0.0207072509888525" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="Left_Forward" />
-    <axis xyz="0 -1 0" />
-    <limit effort="10" velocity="10" />
-    <dynamics damping="0.1" friction="0.1" />
+  <joint
+    name="leftbackwardsjoint"
+    type="continuous">
+    <origin
+      xyz="-0.00956288548173845 -0.0629588088173645 -0.0213964101615138"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_backward" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
   </joint>
-
-  <link name="left_backward">
+  <link
+    name="Right_foward">
     <inertial>
-      <origin xyz="0 0.0144031841704055 0" rpy="0 0 0" />
-      <mass value="0.184990436210963" />
-      <inertia ixx="0.000100381923541725" ixy="-1.01204186101483E-20" ixz="4.38911794701022E-21" iyy="0.000156485635543517" iyz="6.31917822478644E-21" izz="0.000100381923541725" />
+      <origin
+        xyz="2.77555756156289E-17 -0.0144031841704055 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.184990436210963" />
+      <inertia
+        ixx="0.000100381923541725"
+        ixy="-1.03748690292408E-21"
+        ixz="-8.15745284870943E-22"
+        iyy="0.000156485635543517"
+        iyz="-2.12037193304273E-21"
+        izz="0.000100381923541725" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/left_backward.STL" />
+        <mesh
+          filename="package://auto-navigation/meshes/visual/Right_foward.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 1 0 1" />
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/left_backward.STL" />
+        <mesh
+          filename="package://auto-navigation/meshes/visual/Right_foward.STL" />
       </geometry>
     </collision>
   </link>
-
-  <joint name="leftbackwardsjoint" type="continuous">
-    <origin xyz="-0.00956288548173845 -0.0629588088173645 -0.0213964101615138" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="left_backward" />
-    <axis xyz="0 -1 0" />
-    <limit effort="10" velocity="10" />
-    <dynamics damping="0.1" friction="0.1" />
+  <joint
+    name="rightforwardjoint"
+    type="continuous">
+    <origin
+      xyz="-0.160477801992672 0.302649086675045 -0.0213464101615145"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_foward" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
   </joint>
-
-  <link name="Right_foward">
+  <link
+    name="Right_backwards">
     <inertial>
-      <origin xyz="2.77555756156289E-17 -0.0144031841704055 0" rpy="0 0 0" />
-      <mass value="0.184990436210963" />
-      <inertia ixx="0.000100381923541725" ixy="-1.03748690292408E-21" ixz="-8.15745284870943E-22" iyy="0.000156485635543517" iyz="-2.12037193304273E-21" izz="0.000100381923541725" />
+      <origin
+        xyz="0 -0.0144031841704055 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.184990436210963" />
+      <inertia
+        ixx="0.000100381923541725"
+        ixy="-1.31820267136247E-20"
+        ixz="1.17328307952698E-21"
+        iyy="0.000156485635543517"
+        iyz="6.40061732650818E-21"
+        izz="0.000100381923541725" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/Right_foward.STL" />
+        <mesh
+          filename="package://auto-navigation/meshes/visual/Right_backwards.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 1 0 1" />
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/Right_foward.STL" />
+        <mesh
+          filename="package://auto-navigation/meshes/visual/Right_backwards.STL" />
       </geometry>
     </collision>
   </link>
-
-  <joint name="rightforwardjoint" type="continuous">
-    <origin xyz="-0.160477801992672 0.302649086675045 -0.0213464101615145" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="Right_foward" />
-    <axis xyz="0 1 0" />
-    <limit effort="10" velocity="10" />
-    <dynamics damping="0.1" friction="0.1" />
-  </joint>
-
-  <link name="Right_backwards">
-    <inertial>
-      <origin xyz="0 -0.0144031841704055 0" rpy="0 0 0" />
-      <mass value="0.184990436210963" />
-      <inertia ixx="0.000100381923541725" ixy="-1.31820267136247E-20" ixz="1.17328307952698E-21" iyy="0.000156485635543517" iyz="6.40061732650818E-21" izz="0.000100381923541725" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/Right_backwards.STL" />
-      </geometry>
-      <material name="">
-        <color rgba="1 1 0 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <mesh filename="package://auto-navigation/meshes/visual/Right_backwards.STL" />
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="rightbackwardsjoint" type="continuous">
-    <origin xyz="-0.0102411478277296 0.302649086675045 -0.0211540758630961" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="Right_backwards" />
-    <axis xyz="0 1 0" />
-    <limit effort="10" velocity="10" />
-    <dynamics damping="0.1" friction="0.1" />
+  <joint
+    name="rightbackwardsjoint"
+    type="continuous">
+    <origin
+      xyz="-0.0102411478277296 0.302649086675045 -0.0211540758630961"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_backwards" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
   </joint>
 </robot>
