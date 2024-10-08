@@ -6,7 +6,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    config_dir = "/home/reno/turtlebot3_ws/src/auto-navigation/config"
+    config_dir = os.path.join(get_package_share_directory('auto-navigation'), 'config')
     param_file = os.path.join(config_dir, "tb3_nav_params.yaml")
     map_file = os.path.join(config_dir, "tb3_map.yaml")
     rviz_config_dir = os.path.join(config_dir, 'navigation.rviz')
